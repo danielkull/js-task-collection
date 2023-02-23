@@ -51,3 +51,25 @@ console.log(isString(""));
 
 console.log(isString("John" + "Doe"));
 // result should be true
+
+
+const zahlenArray = [34,[2323, 2342],2354,234,123,5345,45,2,45,"Tom", true];
+const nameList = ["Peter", "Sarah", "Franz", "Voldemort"];
+
+function variablenBuggy(rumbel) {
+  let a = 10;
+  let b = a + rumbel;
+  const c = a + b;
+  zahlenArray.push(c);
+}
+
+
+console.log(zahlenArray);
+
+function berechneZahlen(a, b){
+  variablenBuggy(44);
+  return a + b + zahlenArray[10];
+}
+
+console.log(berechneZahlen(zahlenArray[1][0], zahlenArray[9]));
+
