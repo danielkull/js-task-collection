@@ -1,0 +1,35 @@
+*,
+:root {
+  box-sizing: border-box;
+  margin: 0;
+}
+
+.window {
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: background-color 1s ease-in;
+}
+
+.dark-window {
+  background-color: #1f1f1f;
+}
+
+.light-switch {
+  all: unset;
+  font-family: monospace;
+  font-size: 1.8rem;
+  letter-spacing: 0.1rem;
+  border: 5px solid #1f1f1f;
+  padding: 0.3em 0.6em;
+  cursor: pointer;
+  transition: box-shadow 1s, color 0.5s, border 0.5s;
+}
+
+.light-off {
+  color: papayawhip;
+  border: 5px solid papayawhip;
+  box-shadow: 0 0 0.6rem 0.2rem yellow;
+}
