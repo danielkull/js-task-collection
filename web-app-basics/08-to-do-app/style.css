@@ -1,0 +1,139 @@
+*,
+*:before,
+*:after,
+:root {
+  box-sizing: content-box;
+  margin: 0;
+}
+
+html,
+body {
+  height: 100%;
+  font-family: sans-serif;
+}
+
+body {
+  background-color: #f5f5f5;
+}
+
+header {
+  background-color: #ef476f;
+  height: 10rem;
+  padding: 0.2rem;
+  display: grid;
+  justify-content: center;
+  align-items: center;
+}
+
+main {
+  display: grid;
+  justify-content: center;
+  margin: 0 auto;
+}
+
+h1 {
+  font-size: 2.6rem;
+  color: azure;
+  text-shadow: 2px 2px #118ab2, 4px 4px #f5ab00;
+}
+
+h2 {
+  font-size: 1.8rem;
+  margin-top: 3rem;
+  margin-bottom: 1rem;
+}
+
+.radio-field {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  grid-gap: 0.5em;
+  align-items: center;
+  justify-content: start;
+}
+
+.add-todo-field {
+  padding: 2.5rem 0 0;
+}
+
+label {
+  font-size: 1.3rem;
+}
+
+input {
+  all: unset;
+}
+
+input[type="text"] {
+  background-color: #ffffff;
+  height: 2.8rem;
+  border-radius: 0.5rem;
+  font-size: 1.3rem;
+  padding-left: 0.8rem;
+  border: 2px solid #ffffff;
+  margin-right: 1rem;
+}
+
+input[type="text"]:focus {
+  border-color: #f5ab00;
+}
+
+input[type="radio"] {
+  padding: 0.65rem;
+  border: 0.12rem solid #083c4d;
+  border-radius: 50%;
+  background-color: #ffffff;
+  margin: 0.1rem 0;
+}
+
+input[type="radio"]:checked {
+  background-color: #118ab2;
+}
+
+input[type="radio"]:focus {
+  border-color: #f5ab00;
+}
+
+button {
+  all: unset;
+  background-color: #118ab2;
+  box-shadow: 3px 3px #ef476f;
+  border-radius: 0.5rem;
+  padding: 0.8rem 0.6rem;
+  font-size: 1.3rem;
+  color: #ffffff;
+}
+
+.remove-button {
+  margin: 1.5rem 0;
+  width: fit-content;
+  padding: 0.4rem 0.6rem;
+}
+
+button:focus {
+  box-shadow: 3px 3px #ef476f, inset 0 0 0 2px #f5ab00;
+}
+
+button:active {
+  box-shadow: 0 0 0 transparent, inset 0 0 0 2px #f5ab00;
+}
+
+ul {
+  padding: 0;
+}
+
+li {
+  list-style: none;
+  background-color: #ffffff;
+  padding: 1rem;
+  margin-top: 0.5rem;
+}
+
+input[type="checkbox"] {
+  width: 1rem;
+  height: 1rem;
+  border: 0.12rem solid #083c4d;
+}
+
+/* input[type="checkbox"]:checked {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' aria-hidden='true' focusable='false' %3E%3Cpath fill='none' stroke='white' stroke-width='3' d='M1.73 12.91l6.37 6.37L22.79 4.59' /%3E%3C/svg%3E");
+} */
