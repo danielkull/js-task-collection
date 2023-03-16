@@ -65,9 +65,10 @@ radioSection.addEventListener("click", (e) => {
 });
 
 addTodosBtn.addEventListener("click", () => {
-  if(validText()){
-    const newTodoTask = addNewTodoToState();
-    addNewTodoToList(newTodoTask);
+  if (validText(newTodoText.value)) {
+    const newText = removeTrailingSpaces(newTodoText.value);
+    const newTodoTask = addNewTodoToState(newText);
+    addNewTodoToList(newTodoTask, newText);
     updateStorage();
     newTodoText.value = "";
   }
@@ -77,25 +78,36 @@ removeDoneTodos.addEventListener("click", () => {
   deleteElement();
 });
 
-function addNewTodoToState() {
-  const newText = newTodoText.value;
+function addNewTodoToState(newText) {
   const newTask = { description: newText, done: false };
   state.todos.push(newTask);
   const lastStateIndex = state.todos.length - 1;
   return state.todos[lastStateIndex];
 }
 
-function addNewTodoToList(todo) {
+function addNewTodoToList(todo, newText) {
   const todoLi = document.createElement("li");
   todoLi.todoObj = todo;
 
+  let textId = "";
+  if (newText === undefined) {
+    textId = generateId(todo.description);
+  } else {
+    textId = generateId(newText);
+  }
+
   const checkbox = document.createElement("input");
   checkbox.type = "checkbox";
+  checkbox.setAttribute("id", textId);
   checkbox.checked = todo.done;
 
   todoLi.appendChild(checkbox);
+
   const todoText = document.createTextNode(todo.description);
-  todoLi.appendChild(todoText);
+  const todoTextLabel = document.createElement("label");
+  todoTextLabel.setAttribute("for", textId);
+  todoTextLabel.appendChild(todoText);
+  todoLi.appendChild(todoTextLabel);
 
   list.appendChild(todoLi);
 }
@@ -136,6 +148,56 @@ function deleteElement() {
   }
 }
 
-function validText() {
-  return newTodoText.value.length >= 5 ? true : false;
+function validText(todoText) {
+  console.log(
+    checkForTextLength(todoText),
+    checkForEmptySpace(todoText),
+    checkForExistingValues(todoText)
+  );
+  if (
+    checkForTextLength(todoText) &&
+    checkForEmptySpace(todoText) &&
+    checkForExistingValues(todoText)
+  ) {
+    return true;
+  }
+  return false;
+}
+
+function checkForTextLength(todoText) {
+  return todoText.length >= 5 ? true : false;
+}
+
+function checkForEmptySpace(text) {
+  return text[0] === " " ? false : true;
+}
+
+//Checks for existing, case insenstive Todo Tasks
+function checkForExistingValues(text) {
+  const modfiText = convertToLowerCase(text);
+  for (let i = 0; i < state.todos.length; i++) {
+    const existingText = convertToLowerCase(state.todos[i].description);
+
+    if (modfiText === existingText) {
+      return false;
+    }
+  }
+  return true;
+}
+
+function convertToLowerCase(text) {
+  return text.toLocaleLowerCase();
+}
+
+function removeTrailingSpaces(text) {
+  return text.trimEnd();
+}
+
+function generateId(value) {
+  return value.replace(/\s/g, "-").slice(-5) + randomNumber();
+  //Take last 5 characters + a random number
+}
+
+function randomNumber() {
+  return Math.floor(Math.random() * 100);
 }

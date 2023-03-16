@@ -124,16 +124,29 @@ ul {
 li {
   list-style: none;
   background-color: #ffffff;
-  padding: 1rem;
+  padding: 1.5rem;
   margin-top: 0.5rem;
+  border: 2px solid transparent;
+  border-radius: 0.8rem;
 }
 
 input[type="checkbox"] {
-  width: 1rem;
-  height: 1rem;
-  border: 0.12rem solid #083c4d;
+  padding-left: 1rem;
+  margin-right: 1rem;
+  background-color: transparent;
+  border: 0.15rem solid #083c4d;
 }
 
-/* input[type="checkbox"]:checked {
+input[type="checkbox"]:checked {
   background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' aria-hidden='true' focusable='false' %3E%3Cpath fill='none' stroke='white' stroke-width='3' d='M1.73 12.91l6.37 6.37L22.79 4.59' /%3E%3C/svg%3E");
-} */
+  background-color: #06d6a0;
+}
+
+input[type="checkbox"]:checked + label {
+  text-decoration: line-through;
+}
+
+li:focus-within {
+  border-color: #f5ab00;
+  box-shadow: 3px 3px #ef476f;
+}
