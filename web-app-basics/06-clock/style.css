@@ -1,0 +1,86 @@
+*,
+:root {
+  box-sizing: content-box;
+  margin: 0;
+  padding: 0;
+}
+
+html,
+body {
+  height: 100%;
+  font-family: monospace;
+}
+
+body {
+  background-color: gold;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+
+  --hour-w: 1.7%;
+  --hour-h: 23%;
+  --hour-rotation: 0deg;
+  --minutes-w: 1.3%;
+  --minutes-h: 45%;
+  --minutes-rotation: 0deg;
+  --seconds-w: 0.5%;
+  --seconds-h: 49%;
+  --seconds-rotation: 0deg;
+}
+
+.digital-clock {
+  margin-top: 3rem;
+  font-size: 3rem;
+}
+
+.clock {
+  width: 40vmin;
+  height: 40vmin;
+  background-color: white;
+  border: 3px solid #000;
+  border-radius: 50%;
+  box-shadow: 2px 2px 5px black;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+
+.rotation-point {
+  width: 2vmin;
+  height: 2vmin;
+  border-radius: 50%;
+  background-color: black;
+  border: 1px solid #000;
+}
+
+.hours,
+.minutes,
+.seconds {
+  background: black;
+  border-radius: 5px;
+  transform: rotate(0deg);
+  position: absolute;
+  top: 50%;
+  left: calc(50% - (var(--hour-w) / 2));
+  transform-origin: top center;
+}
+
+.hours {
+  width: var(--hour-w);
+  height: var(--hour-h);
+  transform: rotate(var(--hour-rotation));
+}
+
+.minutes {
+  width: var(--minutes-w);
+  height: var(--minutes-h);
+  transform: rotate(var(--minutes-rotation));
+}
+
+.seconds {
+  width: var(--seconds-w);
+  height: var(--seconds-h);
+  transform: rotate(var(--seconds-rotation));
+}
