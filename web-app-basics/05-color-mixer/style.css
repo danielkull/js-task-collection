@@ -1,0 +1,56 @@
+*,
+:root {
+  box-sizing: border-box;
+  margin: 0;
+}
+
+html,
+body {
+  height: 100%;
+}
+
+body {
+  /* Custom Properties for Colors */
+  --main-bg-red: 0;
+  --main-bg-green: 0;
+  --main-bg-blue: 0;
+}
+
+header {
+  display: flex;
+  gap: 2rem;
+  font-size: 1.6rem;
+  font-family: monospace;
+  padding: 1.8rem 0.8rem;
+  justify-content: space-between;
+  background: rgba(
+    var(--main-bg-red),
+    var(--main-bg-green),
+    var(--main-bg-blue),
+    0.3
+  );
+}
+
+main {
+  height: 100%;
+}
+
+.color-palette {
+  background: rgb(
+    var(--main-bg-red),
+    var(--main-bg-green),
+    var(--main-bg-blue)
+  );
+}
+
+input[name="red"] {
+  accent-color: red;
+}
+
+input[name="green"] {
+  accent-color: green;
+}
+
+input[name="blue"] {
+  accent-color: blue;
+}
